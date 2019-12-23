@@ -96,7 +96,13 @@ def all_supplies_in_holidays(holiday_hash)
             holiday_string += supplies[i].capitalize
           end
         else
-          holiday_string += supplies[i].capitalize + ", "
+          if supplies[i].include?(" ")
+            supply_string = supplies[i].split
+            supply_string.each_with_index {|word, index| supply_string[index] = word.capitalize}
+            holiday_string += supply_string.join(" ") + ", "
+          else
+            holiday_string += supplies[i].capitalize + ", "
+          end
         end
         i += 1
       end
