@@ -84,6 +84,8 @@ def all_supplies_in_holidays(holiday_hash)
           holiday_string += supplies[i].capitalize
         else
           holiday_string += supplies[i].capitalize + ", "
+        end
+        i += 1
       end
     end
   end
