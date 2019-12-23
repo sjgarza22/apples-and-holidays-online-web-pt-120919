@@ -88,7 +88,13 @@ def all_supplies_in_holidays(holiday_hash)
       i = 0
       while supplies.length > i
         if supplies[i] == supplies[-1]
-          holiday_string += supplies[i].capitalize
+          if supplies[i].include?(" ")
+            supply_string = supplies[i].split
+            supply_string.each_with_index {|word, index| supply_string[index] = word.capitalize}
+            holiday_string += supply_string.join(" ")
+          else
+            holiday_string += supplies[i].capitalize
+          end
         else
           holiday_string += supplies[i].capitalize + ", "
         end
