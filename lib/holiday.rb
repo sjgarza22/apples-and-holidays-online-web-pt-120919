@@ -98,7 +98,9 @@ def all_supplies_in_holidays(holiday_hash)
             holiday_string += supplies[i].capitalize
           end
         else
-          if supplies[i].include?(" ")
+          if supplies[i] == "BBQ"
+            holiday_string += supplies[i] + ", "
+          elsif  supplies[i].include?(" ")
             supply_string = supplies[i].split
             supply_string.each_with_index {|word, index| supply_string[index] = word.capitalize}
             holiday_string += supply_string.join(" ") + ", "
